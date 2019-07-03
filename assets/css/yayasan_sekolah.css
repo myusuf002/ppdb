@@ -1,0 +1,5 @@
+  .form-input{
+      border:none;
+      border-radius: 0;
+      border-bottom: solid 2px var(--secondary);
+  }
