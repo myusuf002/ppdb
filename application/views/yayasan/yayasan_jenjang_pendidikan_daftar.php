@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <!-- Page CSS -->
-    <link href="<?php echo base_url('assets/css/yayasan_jenjang_pendidikan_daftar.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/yayasan_jenjang_pendidikan_daftar.css'); ?>" rel="stylesheet">
 </head>
 <body>
 
-    <?php if ($status_pendaftaran) { ?>
+    <?php if ($jenjang['status_jenjang_pendidikan']): ?>
     <div class="col-md bg-secondary"></div>
     <div class="col-md-12">
         <!-- Form Registration -->
@@ -99,7 +99,7 @@
             <section class="col-md-12">
                 <div class="form-row my-2">
                     <div class="col-md-6 px-3 text-left">
-                        <input class="form-control form-input pb-2 mb-3 text-left bg-white"  value="<?php echo $kode_sekolah; ?>" hidden>
+                        <input class="form-control form-input pb-2 mb-3 text-left bg-white" value="<?= $jenjang['id_jenjang_pendidikan']; ?>" hidden>
                     </div>
                     <div class="col-md-6 px-3 text-left">
                         <input class="form-control form-input pb-2 mb-3 text-left bg-white" value="reguler" hidden>
@@ -117,11 +117,11 @@
         </form>
         <!-- End Form Registration -->
     </div>
-    <?php } else{ ?>
+    <?php else: ?>
     <div class="col-md-12 text-center my-5">
         <h1 class="font-weight-bold text-danger">Pendaftaran Ditutup</h1>
     </div>
-    <?php } ?>
+    <?php endif; ?>
 
 </body>
 </html>

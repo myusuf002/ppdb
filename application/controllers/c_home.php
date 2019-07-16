@@ -3,12 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class c_home extends CI_Controller {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('m_home');
+    }
+
     public function index()
     {
         $data['title'] = "i-PPDB";
-        $data['login_status'] = true;
         $data['nama_peserta'] = "Muhammad Yusuf";
         $data['foto_peserta'] = "user-picture-1.png";
+        $data['yayasan'] = $this->m_home->get_yayasan();
+        $data['list_jenjang'] = $this->m_home->get_all_jenjang_pendidikan();
         $this->load->view('home', $data);
     }
 

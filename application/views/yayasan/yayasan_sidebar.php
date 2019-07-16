@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Page CSS -->
-    <link href="<?php echo base_url('assets/css/yayasan_sidebar.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/yayasan_sidebar.css'); ?>" rel="stylesheet">
 </head>
 <body>
 
@@ -21,11 +21,11 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon">
-            <img src="<?php echo base_url('uploads/foundation/logo-foundation.png'); ?>"
+            <img src="<?= base_url('uploads/foundation/'.$yayasan['logo_yayasan']); ?>"
                  width="30" height="30" class="d-inline-block align-top">
         </div>
         <div class="sidebar-brand-text mx-3">
-            <span class="font-weight-bold">Telkom Schools</span>
+            <span class="font-weight-bold"><?= $yayasan['nama_yayasan']; ?></span>
 
         </div>
         </a>
@@ -75,12 +75,12 @@
         </a>
         <div id="collapsePendidikan" class="collapse" aria-labelledby="headingPendidikan" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Jenjang Pendidikan:</h6>
-            <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/SMK">SMK</a>
-            <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/SMA">SMA</a>
-            <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/SMP">SMP</a>
-            <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/SD">SD</a>
-            <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/TK">TK</a>
+                <h6 class="collapse-header">Jenjang Pendidikan:</h6>
+                <?php foreach ($list_jenjang as $jenjang): ?>
+                <a class="collapse-item tombol" id="c_yayasan_jenjang_pendidikan/index/<?= $jenjang['id_jenjang_pendidikan']; ?>">
+                    <?= $jenjang['kode_jenjang_pendidikan']; ?>
+                </a>
+                <?php endforeach; ?>
             </div>
         </div>
         </li>

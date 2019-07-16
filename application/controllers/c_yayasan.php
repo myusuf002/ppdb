@@ -13,12 +13,12 @@ class c_yayasan extends CI_Controller {
 	{
         $data['list_pengumuman'] = $this->m_yayasan->get_all_pengumuman();
         $data['yayasan'] = $this->m_yayasan->get_yayasan();
+        $data['list_jenjang'] = $this->m_yayasan->get_all_jenjang_pendidikan();
 		$this->load->view('yayasan/yayasan', $data);
 	}
 
     public function registrasi()
     {
-        $data['login_status'] = true;
         $this->load->view('yayasan/yayasan_registrasi', $data);
     }
 }

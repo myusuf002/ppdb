@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $title; ?></title>
-    <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo/logo-ppdb.png'); ?>">
+    <title><?= $title; ?></title>
+    <link rel="shortcut icon" href="<?= base_url('assets/img/logo/logo-ppdb.png'); ?>">
 
     <!-- Main CDN Styles -->
     <?php $this->load->view('cdn_styles'); ?>
 
     <!-- Main CSS -->
-    <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/main.css'); ?>" rel="stylesheet">
 
 </head>
 <body id="page-top">
@@ -47,7 +47,7 @@
     <!-- Main CDN JS -->
     <?php $this->load->view('cdn_scripts'); ?>
     <!-- Main JS  -->
-    <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/main.js'); ?>"></script>
 
     <script>
         $(document).ready(function(){

@@ -29,7 +29,6 @@
                                     if ($diff < 0) echo 'Telah Berakhir';
                                     else echo 'Deadline: ' . date("d-m-Y", strtotime($beasiswa['tgl_deadline_beasiswa']));
                                 ?>
-<!--                                Deadline: 20 Juli 2019-->
                             </small>
                             <p class="text-secondary  text-justify">
                                 <?= $beasiswa['deskripsi_beasiswa']; ?>

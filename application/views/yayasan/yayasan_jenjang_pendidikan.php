@@ -8,6 +8,10 @@
     <title></title>
 </head>
 <body>
+    <?php
+        $persyaratan_json = json_decode($jenjang['persyaratan_jenjang_pendidikan'], true);
+        $kelengkapan_json = json_decode($jenjang['kelengkapan_jenjang_pendidikan'], true);
+    ?>
     <!-- Body Section -->
     <div class="container-fluid">
         <div class="row">
@@ -16,9 +20,15 @@
                 <div class="row mx-1 my-3">
                     <!-- Name School Title -->
                     <div class="col-md-12 my-3">
-                        <h6 class="text-danger font-weight-bold my-0">Akreditasi A</h6>
-                        <h5 class="d-none d-sm-block font-weight-bold text-dark"><?php echo $nama_sekolah ?></h5>
-                        <h6 class="d-block d-sm-none font-weight-bold text-dark text-center"><?php echo $nama_sekolah ?></h6>
+                        <h6 class="text-danger font-weight-bold my-0">
+                            Akreditasi <?= $jenjang['akreditasi_jenjang_pendidikan']; ?>
+                        </h6>
+                        <h5 class="d-none d-sm-block font-weight-bold text-dark">
+                            <?= $jenjang['nama_jenjang_pendidikan']; ?>
+                        </h5>
+                        <h6 class="d-block d-sm-none font-weight-bold text-dark text-center">
+                            <?= $jenjang['nama_jenjang_pendidikan']; ?>
+                        </h6>
                     </div>
                     <!-- End Name School Title -->
 
@@ -61,9 +71,7 @@
                             <div class="col-md-12">
                                 <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
                                 <hr class="m-0"> -->
-                                <p class="text-justify text-secondary small">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed. Risus sed vulputate odio ut. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Elit ullamcorper dignissim cras tincidunt lobortis feugiat. Diam ut venenatis tellus in metus vulputate. Congue nisi vitae suscipit tellus mauris a diam. Pulvinar elementum integer enim neque volutpat ac. Duis convallis convallis tellus id interdum velit laoreet. Integer enim neque volutpat ac tincidunt vitae semper. Volutpat est velit egestas dui. Auctor elit sed vulputate mi sit amet mauris commodo quis.
-                                </p>
+                                <p class="text-justify text-secondary small"><?= $jenjang['deskripsi_jenjang_pendidikan']; ?></p>
                                 <!-- Registration Track Section -->
                                 <h6 class="text-danger font-weight-bold m-0">Alur Pendaftaran</h6>
                                 <table class="small">
@@ -120,20 +128,18 @@
                                 <h6 class="font-weight-bold text-danger">Persyaratan</h6>
                                 <hr class="m-0">
                                 <ol class="text-secondary mx-0">
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Consectetur adipiscing elit.</li>
-                                    <li>Sed do eiusmod tempor incididunt ut labore.</li>
-                                    <li>Maecenas volutpat blandit aliquam etiam erat velit scelerisque.</li>
+                                    <?php foreach ($persyaratan_json['persyaratan'] as $persyaratan): ?>
+                                        <li><?= $persyaratan; ?></li>
+                                    <?php endforeach; ?>
                                 </ol>
                             </div>
                             <div class="col-md-6">
                                 <h6 class="font-weight-bold text-danger">Kelengkapan</h6>
                                 <hr class="m-0">
                                 <ol class="text-secondary mx-0">
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Consectetur adipiscing elit.</li>
-                                    <li>Sed do eiusmod tempor incididunt ut labore.</li>
-                                    <li>Maecenas volutpat blandit aliquam etiam erat velit scelerisque.</li>
+                                    <?php foreach ($kelengkapan_json['kelengkapan'] as $kelengkapan): ?>
+                                        <li><?= $kelengkapan; ?></li>
+                                    <?php endforeach; ?>
                                 </ol>
                             </div>
                         </div>

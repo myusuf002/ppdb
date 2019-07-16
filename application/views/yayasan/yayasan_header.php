@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <!-- Page CSS -->
-    <link href="<?php echo base_url('assets/css/header.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/header.css'); ?>" rel="stylesheet">
 </head>
 <body>
     <!--  Header Yayasan -->
@@ -24,8 +24,8 @@
         <!-- End Navigation Button -->
 
         <!-- Image and text Brand -->
-        <a class="navbar-brand ml-2" href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url('assets/img/logo/logo-name-ppdb.png'); ?>"
+        <a class="navbar-brand ml-2" href="<?= base_url(); ?>">
+            <img src="<?= base_url('assets/img/logo/logo-name-ppdb.png'); ?>"
                  height="30" class="d-none d-sm-block">
             <span class="d-block d-sm-none font-italic pt-1 text-danger ">i-PPDB</span>
         </a>
