@@ -17,6 +17,10 @@
   background-color: var(--white);
 }
 
+.tombol {
+  cursor: pointer;
+}
+
 .scroll-to-top {
     position: fixed;
     right: 1rem;
