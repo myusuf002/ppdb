@@ -18,31 +18,25 @@
                     <div id="announcementCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ul class="carousel-indicators">
-                            <li data-target="#announcementCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#announcementCarousel" data-slide-to="1"></li>
-                            <li data-target="#announcementCarousel" data-slide-to="2"></li>
+                            <?php for ($i=0; $i < count($list_pengumuman); $i++): ?>
+                                <li data-target="#announcementCarousel" data-slide-to="<?= $i; ?>"
+                                    class="<?php if ($i == 0) echo 'active'; ?>"></li>
+                            <?php endfor; ?>
                         </ul>
 
                         <!-- The slideshow -->
                         <div class="carousel-inner">
-                            <div class="carousel-item text-center active">
-                                <img class="img-fluid text-danger" src="<?php echo base_url('uploads/announcement/pendaftaran-SMA.png'); ?>" alt="Pendaftaran SMA telah dibuka!">
-                                <div class="carousel-caption">
-                                    <p class="d-none d-sm-block">Pendaftaran SMA telah dibuka!</p>
+                            <?php $i = 0; ?>
+                            <?php foreach ($list_pengumuman as $pengumuman): ?>
+                                <div class="carousel-item text-center <?php if ($i == 0) echo 'active'; ?>">
+                                    <img class="img-fluid text-danger" src="<?= base_url('uploads/announcement/' . $pengumuman['file_pengumuman']); ?>"
+                                         alt="Image <?= $pengumuman['judul_pengumuman']; ?>">
+                                    <div class="carousel-caption">
+                                        <p class="d-none d-sm-block"><?= $pengumuman['judul_pengumuman']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item text-center">
-                                <img class="img-fluid text-danger" src="<?php echo base_url(); ?>uploads/announcement/peresmian-gedung.png" alt="Peresmian gedung serbaguna SMP!">
-                                <div class="carousel-caption">
-                                    <p class="d-none d-sm-block">Peresmian gedung serbaguna SMP!</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item text-center">
-                                <img class="img-fluid text-danger" src="<?php echo base_url(); ?>uploads/announcement/beasiswa-ozai.png" alt="Beasiswa Ozai di Telkom Schools!">
-                                <div class="carousel-caption">
-                                    <p class="d-none d-sm-block">Beasiswa Ozai di Telkom Schools!</p>
-                                </div>
-                            </div>
+                            <?php $i++; ?>
+                            <?php endforeach; ?>
                         </div>
 
                         <!-- Left and right controls -->
@@ -81,7 +75,7 @@
                             </form>
                             <!-- End Login Form -->
                         </div>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan/registrasi" class="btn btn-danger col-md-2 align-self-center">
+                        <a href="<?= site_url(); ?>?page=c_yayasan/registrasi" class="btn btn-danger col-md-2 align-self-center">
                             Daftar Sekarang
                         </a>
                     </div>
@@ -92,11 +86,9 @@
             <!-- Profile Foundation Section -->
             <div class="row mx-1 my-3">
                 <div class="col-md-12 py-2">
-                    <h5 class="font-weight-bold text-dark">Telkom Schools</h5>
+                    <h5 class="font-weight-bold text-dark"><?= $yayasan['nama_yayasan']; ?></h5>
                     <hr class="m-0">
-                    <p class="text-justify mx-2 text-secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed. Risus sed vulputate odio ut. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Elit ullamcorper dignissim cras tincidunt lobortis feugiat. Diam ut venenatis tellus in metus vulputate. Congue nisi vitae suscipit tellus mauris a diam. Pulvinar elementum integer enim neque volutpat ac. Duis convallis convallis tellus id interdum velit laoreet. Integer enim neque volutpat ac tincidunt vitae semper. Volutpat est velit egestas dui. Auctor elit sed vulputate mi sit amet mauris commodo quis.
-                    </p>
+                    <p class="text-justify mx-2 text-secondary"><?= $yayasan['profil_yayasan']; ?></p>
                 </div>
             </div>
             <!-- End Profile Foundation Section -->
@@ -104,53 +96,53 @@
             <!-- List of Schools Section -->
             <div class="row mx-1 my-3 text-center">
                 <div class="card m-1" style="width:350px">
-                    <img class="card-img-top" src="<?php echo base_url() ?>/uploads/school/smk.jpg" alt="Card image">
+                    <img class="card-img-top" src="<?= base_url('/uploads/school/smk.jpg') ?>" alt="Card image">
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-danger">Sekolah Menengah Kejuruan</h6>
                         <p class="card-text text-justify text-secondary small">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed.
                         </p>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMK" class="btn btn-danger">Selengkapnya</a>
+                        <a href="<?= site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMK" class="btn btn-danger">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="card m-1" style="width:350px">
-                    <img class="card-img-top" src="<?php echo base_url() ?>/uploads/school/sma.jpg" alt="Card image">
+                    <img class="card-img-top" src="<?= base_url('/uploads/school/sma.jpg'); ?>" alt="Card image">
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-danger">Sekolah Menengah Atas</h6>
                         <p class="card-text text-justify text-secondary small">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed.
                         </p>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMA" class="btn btn-danger">Selengkapnya</a>
+                        <a href="<?= site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMA" class="btn btn-danger">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="card m-1" style="width:350px">
-                    <img class="card-img-top" src="<?php echo base_url() ?>/uploads/school/smp.png" alt="Card image">
+                    <img class="card-img-top" src="<?= base_url('/uploads/school/smp.png'); ?>" alt="Card image">
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-danger">Sekolah Menengah Pertama</h6>
                         <p class="card-text text-justify text-secondary small">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed.
                         </p>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMP" class="btn btn-danger">Selengkapnya</a>
+                        <a href="<?= site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SMP" class="btn btn-danger">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="card m-1" style="width:350px">
-                    <img class="card-img-top" src="<?php echo base_url() ?>/uploads/school/sd.jpg" alt="Card image">
+                    <img class="card-img-top" src="<?= base_url('/uploads/school/sd.jpg'); ?>" alt="Card image">
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-danger">Sekolah Dasar</h6>
                         <p class="card-text text-justify text-secondary small">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed.
                         </p>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SD" class="btn btn-danger">Selengkapnya</a>
+                        <a href="<?= site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/SD" class="btn btn-danger">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="card m-1" style="width:350px">
-                    <img class="card-img-top" src="<?php echo base_url() ?>/uploads/school/tk.jpg" alt="Card image">
+                    <img class="card-img-top" src="<?= base_url('/uploads/school/tk.jpg'); ?>" alt="Card image">
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-danger">Taman Kanak-Kanak</h6>
                         <p class="card-text text-justify text-secondary small">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed.
                         </p>
-                        <a href="<?php echo site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/TK" class="btn btn-danger">Selengkapnya</a>
+                        <a href="<?= site_url(); ?>?page=c_yayasan_jenjang_pendidikan/index/TK" class="btn btn-danger">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -160,7 +152,7 @@
     </div>
 
     <!-- Page JS  -->
-    <script src="<?php echo base_url('assets/js/yayasan.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/yayasan.js'); ?>"></script>
 
 </body>
 </html>

@@ -1,16 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_yayasan extends CI_Model {
+class m_yayasan_pengumuman extends CI_Model {
 
     public function get_all_pengumuman() {
         $this->db->order_by('tgl_pengumuman', 'DESC');
         return $this->db->get('pengumuman')->result_array();
-    }
-
-    public function get_yayasan() {
-        $this->db->order_by('id_yayasan', 'DESC');
-        return $this->db->get('yayasan')->row_array();
     }
 
 }
