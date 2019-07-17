@@ -11,7 +11,8 @@ class c_yayasan extends CI_Controller {
 
 	public function index()
 	{
-        $data['list_pengumuman'] = $this->m_yayasan->get_all_pengumuman();
+	    $spesific = array('status_pengumuman' => true);
+        $data['list_pengumuman'] = $this->m_yayasan->get_specific_pengumuman($spesific);
         $data['yayasan'] = $this->m_yayasan->get_yayasan();
         $data['list_jenjang'] = $this->m_yayasan->get_all_jenjang_pendidikan();
 		$this->load->view('yayasan/yayasan', $data);

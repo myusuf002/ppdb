@@ -30,7 +30,7 @@
                             <?php foreach ($list_pengumuman as $pengumuman): ?>
                                 <div class="carousel-item text-center <?php if ($i == 0) echo 'active'; ?>">
                                     <img class="img-fluid text-danger" src="<?= base_url('uploads/announcement/' . $pengumuman['file_pengumuman']); ?>"
-                                         alt="Image <?= $pengumuman['judul_pengumuman']; ?>">
+                                         alt="Image Carousel">
                                     <div class="carousel-caption">
                                         <p class="d-none d-sm-block"><?= $pengumuman['judul_pengumuman']; ?></p>
                                     </div>

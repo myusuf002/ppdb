@@ -10,142 +10,42 @@
 <body>
     <!-- Body Section -->
     <div class="container-fluid mt-5">
+        <?php foreach ($list as $list): ?>
         <div class="row px-3">
-        <h5 class="font-weight-bold">Sekolah Menengah Kejuruan</h5>
-        <div class="col-md-12 py-0 my-3 table-responsive">
-            <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
-            <hr class="m-0"> -->
-            <table class="table">
-                <thead class="text-danger">
-                <tr>
-                    <th scope="col">Jalur</th>
-                    <th scope="col">Pendaftaran</th>
-                    <th scope="col">Pendidikan</th>
-                    <th scope="col">Pembangunan</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Reguler</td>
-                    <td>Rp. 150.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.600.000</td>
-                    <td>Rp. 6.400.000</td>
-                </tr>
-                <tr>
-                    <td>Prestasi</td>
-                    <td>Rp. 100.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.000.000</td>
-                    <td>Rp. 6.750.000</td>
-                </tr>
-                </tbody>
-            </table>
+            <h5 class="font-weight-bold"><?= $list['jenjang']['nama_jenjang_pendidikan']; ?></h5>
+            <div class="col-md-12 py-0 my-3 table-responsive">
+                <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
+                <hr class="m-0"> -->
+                <table class="table">
+                    <thead class="text-danger">
+                        <tr>
+                            <th scope="col">Jalur</th>
+                            <th scope="col">Pendaftaran</th>
+                            <th scope="col">Pendidikan</th>
+                            <th scope="col">Pembangunan</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($list['jalur'] as $jalur): ?>
+                        <tr>
+                            <td><?= $jalur['nama_jalur_pendaftaran']; ?></td>
+                            <td>Rp<?= number_format($jalur['biaya_pendaftaran_jalur_pendaftaran']); ?></td>
+                            <td>Rp<?= number_format($jalur['biaya_pendidikan_jalur_pendaftaran']); ?></td>
+                            <td>Rp<?= number_format($jalur['biaya_pembangunan_jalur_pendaftaran']); ?></td>
+                            <?php
+                                $total = $jalur['biaya_pendaftaran_jalur_pendaftaran'];
+                                $total += $jalur['biaya_pendidikan_jalur_pendaftaran'];
+                                $total += $jalur['biaya_pembangunan_jalur_pendaftaran'];
+                            ?>
+                            <td>Rp<?= number_format($total); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        </div>
-        <div class="row px-3">
-        <h5 class="font-weight-bold">Sekolah Menengah Atas</h5>
-        <div class="col-md-12 py-0 my-3 table-responsive">
-            <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
-            <hr class="m-0"> -->
-            <table class="table">
-                <thead class="text-danger">
-                <tr>
-                    <th scope="col">Jalur</th>
-                    <th scope="col">Pendaftaran</th>
-                    <th scope="col">Pendidikan</th>
-                    <th scope="col">Pembangunan</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Reguler</td>
-                    <td>Rp. 150.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.600.000</td>
-                    <td>Rp. 6.400.000</td>
-                </tr>
-                <tr>
-                    <td>Prestasi</td>
-                    <td>Rp. 100.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.000.000</td>
-                    <td>Rp. 6.750.000</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-        <div class="row px-3">
-        <h5 class="font-weight-bold">Sekolah Menengah Pertama</h5>
-        <div class="col-md-12 py-0 my-3 table-responsive">
-            <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
-            <hr class="m-0"> -->
-            <table class="table">
-                <thead class="text-danger">
-                <tr>
-                    <th scope="col">Jalur</th>
-                    <th scope="col">Pendaftaran</th>
-                    <th scope="col">Pendidikan</th>
-                    <th scope="col">Pembangunan</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Reguler</td>
-                    <td>Rp. 150.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.600.000</td>
-                    <td>Rp. 6.400.000</td>
-                </tr>
-                <tr>
-                    <td>Prestasi</td>
-                    <td>Rp. 100.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.000.000</td>
-                    <td>Rp. 6.750.000</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-        <div class="row px-3">
-        <h5 class="font-weight-bold">Sekolah Dasar</h5>
-        <div class="col-md-12 py-0 my-3 table-responsive">
-            <!-- <h6 class="font-weight-bold text-danger">Persyaratan</h6>
-            <hr class="m-0"> -->
-            <table class="table">
-                <thead class="text-danger">
-                <tr>
-                    <th scope="col">Jalur</th>
-                    <th scope="col">Pendaftaran</th>
-                    <th scope="col">Pendidikan</th>
-                    <th scope="col">Pembangunan</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Reguler</td>
-                    <td>Rp. 150.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.600.000</td>
-                    <td>Rp. 6.400.000</td>
-                </tr>
-                <tr>
-                    <td>Prestasi</td>
-                    <td>Rp. 100.000</td>
-                    <td>Rp. 650.000</td>
-                    <td>Rp. 5.000.000</td>
-                    <td>Rp. 6.750.000</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 
     <!-- Page JS  -->

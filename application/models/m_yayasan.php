@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_yayasan extends CI_Model {
 
-    public function get_all_pengumuman() {
+    public function get_specific_pengumuman($spesific) {
+        $this->db->where($spesific);
         $this->db->order_by('tgl_pengumuman', 'DESC');
         return $this->db->get('pengumuman')->result_array();
     }

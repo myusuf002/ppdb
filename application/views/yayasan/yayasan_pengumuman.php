@@ -23,7 +23,7 @@
                         <div id="announcementCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ul class="carousel-indicators">
-                                <?php for ($i=0; $i < count($list_pengumuman); $i++): ?>
+                                <?php for ($i=0; $i < count($specific_pengumuman); $i++): ?>
                                     <li data-target="#announcementCarousel" data-slide-to="<?= $i; ?>"
                                         class="<?php if ($i == 0) echo 'active'; ?>"></li>
                                 <?php endfor; ?>
@@ -32,10 +32,10 @@
                             <!-- The slideshow -->
                             <div class="carousel-inner">
                                 <?php $i = 0; ?>
-                                <?php foreach ($list_pengumuman as $pengumuman): ?>
+                                <?php foreach ($specific_pengumuman as $pengumuman): ?>
                                     <div class="carousel-item text-center <?php if ($i == 0) echo 'active'; ?>">
                                         <img class="img-fluid text-danger" src="<?= base_url('uploads/announcement/' . $pengumuman['file_pengumuman']); ?>"
-                                             alt="Image <?= $pengumuman['judul_pengumuman']; ?>">
+                                             alt="Image Caraousel">
                                         <div class="carousel-caption">
                                             <p class="d-none d-sm-block"><?= $pengumuman['judul_pengumuman']; ?></p>
                                         </div>
@@ -75,7 +75,7 @@
                             <tbody>
                             <?php foreach ($list_pengumuman as $pengumuman): ?>
                                 <tr>
-                                    <td><?= date('d-m-Y', strtotime($pengumuman['tgl_pengumuman'])); ?></td>
+                                    <td><?= date('d F Y', strtotime($pengumuman['tgl_pengumuman'])); ?></td>
                                     <td><?= $pengumuman['judul_pengumuman']; ?></td>
                                     <td><?= $pengumuman['keterangan_pengumuman']; ?></td>
                                     <td>
@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <img class="img-fluid" src="<?= base_url('uploads/announcement/' . $pengumuman['file_pengumuman']); ?>"
-                                                         alt="Image <?= $pengumuman['judul_pengumuman']; ?>">
+                                                         alt="Image Modals">
                                                 </div>
                                                 </div>
                                             </div>

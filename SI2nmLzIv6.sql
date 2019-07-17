@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2019 at 04:10 PM
+-- Generation Time: Jul 17, 2019 at 09:57 AM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
@@ -21,6 +21,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `SI2nmLzIv6`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alur_pendaftaran`
+--
+
+CREATE TABLE `alur_pendaftaran` (
+  `id_alur_pendaftaran` int(11) NOT NULL,
+  `id_jalur_pendaftaran` int(11) NOT NULL,
+  `nama_alur_pendaftaran` text COLLATE utf8_unicode_ci NOT NULL,
+  `tgl_mulai_alur_pendaftaran` date NOT NULL,
+  `tgl_selesai_alur_pendaftaran` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `alur_pendaftaran`
+--
+
+INSERT INTO `alur_pendaftaran` (`id_alur_pendaftaran`, `id_jalur_pendaftaran`, `nama_alur_pendaftaran`, `tgl_mulai_alur_pendaftaran`, `tgl_selesai_alur_pendaftaran`) VALUES
+(1, 1, 'Periode Pendaftaran', '2019-07-12', '2019-08-12'),
+(2, 1, 'Verifikasi Berkas', '2019-07-20', '2019-08-15'),
+(3, 2, 'Periode Pendaftaran', '2019-08-12', '2019-08-20'),
+(4, 2, 'Tes Akademik', '2019-08-21', NULL),
+(5, 2, 'Tes Psikologi', '2019-08-23', NULL),
+(6, 2, 'Tes Kesehatan', '2019-08-25', NULL),
+(7, 3, 'Periode Pendaftaran', '2019-08-20', '2019-08-30'),
+(8, 3, 'Tes Kesehatan', '2019-08-31', NULL);
 
 -- --------------------------------------------------------
 
@@ -99,6 +127,61 @@ INSERT INTO `fasilitas` (`id_fasilitas`, `nama_fasilitas`, `deskripsi_fasilitas`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jalur_jenjang`
+--
+
+CREATE TABLE `jalur_jenjang` (
+  `id_jalur_jenjang` int(11) NOT NULL,
+  `id_jenjang_pendidikan` int(11) NOT NULL,
+  `id_jalur_pendaftaran` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `jalur_jenjang`
+--
+
+INSERT INTO `jalur_jenjang` (`id_jalur_jenjang`, `id_jenjang_pendidikan`, `id_jalur_pendaftaran`) VALUES
+(1, 2, 1),
+(2, 3, 1),
+(3, 4, 1),
+(4, 2, 2),
+(5, 3, 2),
+(6, 4, 2),
+(7, 5, 2),
+(8, 6, 2),
+(9, 5, 3),
+(10, 6, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jalur_pendaftaran`
+--
+
+CREATE TABLE `jalur_pendaftaran` (
+  `id_jalur_pendaftaran` int(11) NOT NULL,
+  `nama_jalur_pendaftaran` text COLLATE utf8_unicode_ci NOT NULL,
+  `keterangan_jalur_pendaftaran` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `persyaratan_jalur_pendaftaran` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `tambahan_jalur_pendaftaran` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `biaya_pendaftaran_jalur_pendaftaran` int(11) NOT NULL,
+  `biaya_pendidikan_jalur_pendaftaran` int(11) NOT NULL,
+  `biaya_pembangunan_jalur_pendaftaran` int(11) NOT NULL,
+  `status_jalur_pendaftaran` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `jalur_pendaftaran`
+--
+
+INSERT INTO `jalur_pendaftaran` (`id_jalur_pendaftaran`, `nama_jalur_pendaftaran`, `keterangan_jalur_pendaftaran`, `persyaratan_jalur_pendaftaran`, `tambahan_jalur_pendaftaran`, `biaya_pendaftaran_jalur_pendaftaran`, `biaya_pendidikan_jalur_pendaftaran`, `biaya_pembangunan_jalur_pendaftaran`, `status_jalur_pendaftaran`) VALUES
+(1, 'Prestasi', 'Jalur Prestasi merupakan jalur tanpa tes dengan penilian dari rapor pada jenjang pendidikan terakhir sebagai penilaian.', '{\r\n\"syarat\": [\r\n\"Lulusan dua tahun terakhir (2018 - 2019).\",\r\n\"Rapor Semester terakhir dengan nilai rata-rata 75 untuk mata pelajaran Bahasa Indonesia, Bahasa Inggris, Matematika , dan IPA.\",\r\n\"Surat rekomendasi asal sekolah.\",\r\n\"Tidak pernah tinggal kelas pada jenjang pendidikan terakhir. Dibuktikan dengan surat keterangan dari sekolah.\"\r\n]\r\n}', NULL, 100000, 650000, 5600000, 1),
+(2, 'Reguler', 'Jalur Reguler merupakan jalur dengan tes untuk menguji calon siswa dalam bidang akademik, psikologi dan kesehatan.', '{ \"syarat\": [\"Lulusan dua tahun terakhir (2018 - 2019)* atau sudah mencukupi umur**.\", \"Rapor Semester terakhir dengan nilai rata-rata 50 untuk mata pelajaran Bahasa Indonesia, Bahasa Inggris, Matematika , dan IPA.*\", \"Surat keterangan lulus sekolah*.\", \"Tidak pernah tinggal kelas pada jenjang pendidikan terakhir. Dibuktikan dengan surat keterangan dari sekolah*.\"] }', '{ \"tambahan\": [\"* Khusus Pendaftar SMP, SMA dan SMK\", \"** Khusus Pendaftar TK dan SD\"] }', 150000, 650000, 5600000, 1),
+(3, 'Non-Reguler', 'Jalur Non-Reguler merupakan jalur hanya dengan tes kesehatan.', NULL, NULL, 200000, 650000, 5600000, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jenjang_pendidikan`
 --
 
@@ -162,7 +245,7 @@ CREATE TABLE `pengumuman` (
   `keterangan_pengumuman` text COLLATE utf8_unicode_ci NOT NULL,
   `tgl_pengumuman` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `file_pengumuman` text COLLATE utf8_unicode_ci NOT NULL,
-  `status_pengumuman` enum('active','passive') COLLATE utf8_unicode_ci NOT NULL
+  `status_pengumuman` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -170,9 +253,9 @@ CREATE TABLE `pengumuman` (
 --
 
 INSERT INTO `pengumuman` (`id_pengumuman`, `judul_pengumuman`, `keterangan_pengumuman`, `file_pengumuman`, `status_pengumuman`) VALUES
-(1, 'Beasiswa Ozai di Telkom Schools!', 'Beasiswa penuh Ozai buat kamu yang mendaftar di Telkom Schools.', 'beasiswa-ozai.png', 'active'),
-(2, 'Peresmian gedung serbaguna SMP!', 'Gedung Serbaguna SMP selesai dibangun dan segera diresmikan.', 'peresmian-gedung.png', 'active'),
-(3, 'Pendaftaran SMA telah dibuka!', 'Daftarkan diri anda menjadi bagian dari SMA Telkom angkatan 2019.', 'pendaftaran-SMA.png', 'active');
+(1, 'Beasiswa Ozai di Telkom Schools!', 'Beasiswa penuh Ozai buat kamu yang mendaftar di Telkom Schools.', 'beasiswa-ozai.png', 1),
+(2, 'Peresmian gedung serbaguna SMP!', 'Gedung Serbaguna SMP selesai dibangun dan segera diresmikan.', 'peresmian-gedung.png', 1),
+(3, 'Pendaftaran SMA telah dibuka!', 'Daftarkan diri anda menjadi bagian dari SMA Telkom angkatan 2019.', 'pendaftaran-SMA.png', 1);
 
 -- --------------------------------------------------------
 
@@ -184,6 +267,25 @@ CREATE TABLE `peserta` (
   `id_peserta` int(11) NOT NULL,
   `nama_peserta` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `petunjuk_pendaftaran`
+--
+
+CREATE TABLE `petunjuk_pendaftaran` (
+  `id_petunjuk_pendaftaran` int(11) NOT NULL,
+  `foto_petunjuk_pendaftaran` text COLLATE utf8_unicode_ci NOT NULL,
+  `step_petunjuk_pendaftaran` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `petunjuk_pendaftaran`
+--
+
+INSERT INTO `petunjuk_pendaftaran` (`id_petunjuk_pendaftaran`, `foto_petunjuk_pendaftaran`, `step_petunjuk_pendaftaran`) VALUES
+(1, 'registration-track.jpeg', '{\r\n\"step\": [\r\n{\r\n\"judul\": \"Buka i-PPDB\",\r\n\"isi\": \"Kunjungi <a class=\'text-danger font-weight-bold text-decoration-none\'>ppdb.telkom.sch.id</a>\"\r\n},\r\n{\r\n\"judul\": \"Pilih Sekolah\",\r\n\"isi\": \"Pilih Sekolah yang akan didaftari.\"\r\n},\r\n{\r\n\"judul\": \"Isi Data Diri\",\r\n\"isi\": \"Pastikan sesuai dengan data pemerintah.\"\r\n},\r\n{\r\n\"judul\": \"Aktivasi Akun\",\r\n\"isi\": \"Beli token pendaftaran yang disediakan.\"\r\n},\r\n{\r\n\"judul\": \"Lengkapi Berkas\",\r\n\"isi\": \"Isi data dan berkas secara lengkap.\"\r\n},\r\n{\r\n\"judul\": \"Ikuti Ujian\",\r\n\"isi\": \"Ikuti tahapan pendaftaran sesuai jalur.\"\r\n},\r\n{\r\n\"judul\": \"Tunggu Pengumuman\",\r\n\"isi\": \"Pantau informasi kelulusan di i-PPDB.\"\r\n},\r\n{\r\n\"judul\": \"Daftar Ulang\",\r\n\"isi\": \"Lunasi seluruh biaya pendidikan.\"\r\n},\r\n{\r\n\"judul\": \"Selamat!\",\r\n\"isi\": \"Anda resmi menjadi peserta didik kami.\"\r\n}\r\n]\r\n}');
 
 -- --------------------------------------------------------
 
@@ -219,6 +321,13 @@ INSERT INTO `yayasan` (`id_yayasan`, `nama_yayasan`, `logo_yayasan`, `sampul_yay
 --
 
 --
+-- Indexes for table `alur_pendaftaran`
+--
+ALTER TABLE `alur_pendaftaran`
+  ADD PRIMARY KEY (`id_alur_pendaftaran`),
+  ADD KEY `id_jalur_pendaftaran` (`id_jalur_pendaftaran`);
+
+--
 -- Indexes for table `beasiswa`
 --
 ALTER TABLE `beasiswa`
@@ -235,6 +344,20 @@ ALTER TABLE `faq`
 --
 ALTER TABLE `fasilitas`
   ADD PRIMARY KEY (`id_fasilitas`);
+
+--
+-- Indexes for table `jalur_jenjang`
+--
+ALTER TABLE `jalur_jenjang`
+  ADD PRIMARY KEY (`id_jalur_jenjang`),
+  ADD KEY `id_jalur_pendaftaran` (`id_jalur_pendaftaran`),
+  ADD KEY `id_jenjang_pendidikan` (`id_jenjang_pendidikan`);
+
+--
+-- Indexes for table `jalur_pendaftaran`
+--
+ALTER TABLE `jalur_pendaftaran`
+  ADD PRIMARY KEY (`id_jalur_pendaftaran`);
 
 --
 -- Indexes for table `jenjang_pendidikan`
@@ -261,6 +384,12 @@ ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id_peserta`);
 
 --
+-- Indexes for table `petunjuk_pendaftaran`
+--
+ALTER TABLE `petunjuk_pendaftaran`
+  ADD PRIMARY KEY (`id_petunjuk_pendaftaran`);
+
+--
 -- Indexes for table `yayasan`
 --
 ALTER TABLE `yayasan`
@@ -269,6 +398,12 @@ ALTER TABLE `yayasan`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `alur_pendaftaran`
+--
+ALTER TABLE `alur_pendaftaran`
+  MODIFY `id_alur_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `beasiswa`
@@ -287,6 +422,18 @@ ALTER TABLE `faq`
 --
 ALTER TABLE `fasilitas`
   MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `jalur_jenjang`
+--
+ALTER TABLE `jalur_jenjang`
+  MODIFY `id_jalur_jenjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `jalur_pendaftaran`
+--
+ALTER TABLE `jalur_pendaftaran`
+  MODIFY `id_jalur_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jenjang_pendidikan`
@@ -313,10 +460,33 @@ ALTER TABLE `peserta`
   MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `petunjuk_pendaftaran`
+--
+ALTER TABLE `petunjuk_pendaftaran`
+  MODIFY `id_petunjuk_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `yayasan`
 --
 ALTER TABLE `yayasan`
   MODIFY `id_yayasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `alur_pendaftaran`
+--
+ALTER TABLE `alur_pendaftaran`
+  ADD CONSTRAINT `alur_pendaftaran_ibfk_1` FOREIGN KEY (`id_jalur_pendaftaran`) REFERENCES `jalur_pendaftaran` (`id_jalur_pendaftaran`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `jalur_jenjang`
+--
+ALTER TABLE `jalur_jenjang`
+  ADD CONSTRAINT `jalur_jenjang_ibfk_1` FOREIGN KEY (`id_jalur_pendaftaran`) REFERENCES `jalur_pendaftaran` (`id_jalur_pendaftaran`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jalur_jenjang_ibfk_2` FOREIGN KEY (`id_jenjang_pendidikan`) REFERENCES `jenjang_pendidikan` (`id_jenjang_pendidikan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

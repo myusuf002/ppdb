@@ -8,4 +8,10 @@ class m_yayasan_pengumuman extends CI_Model {
         return $this->db->get('pengumuman')->result_array();
     }
 
+    public function get_specific_pengumuman($specific) {
+        $this->db->where($specific);
+        $this->db->order_by('tgl_pengumuman', 'DESC');
+        return $this->db->get('pengumuman')->result_array();
+    }
+
 }
