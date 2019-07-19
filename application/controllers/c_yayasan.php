@@ -20,6 +20,7 @@ class c_yayasan extends CI_Controller {
 
     public function registrasi()
     {
+        $data['list_jenjang'] = $this->m_yayasan->get_all_jenjang_pendidikan();
         $this->load->view('yayasan/yayasan_registrasi', $data);
     }
 }

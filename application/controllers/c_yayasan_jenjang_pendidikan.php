@@ -17,6 +17,7 @@ class c_yayasan_jenjang_pendidikan extends CI_Controller {
 
     public function pendaftaran()
     {
+        $data['asd'] = asd;
         $this->load->view('yayasan/yayasan_pendaftaran', $data);
     }
 
