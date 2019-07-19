@@ -16,28 +16,32 @@
 </head>
 <body id="page-top">
     <div id="wrapper">
-        <!-- Sidebar Section -->
-        <?php $this->load->view('yayasan/yayasan_sidebar.php'); ?>
-        <?php #$this->load->view('peserta/peserta_sidebar.php'); ?>
+            <!-- Sidebar Section -->
+            <?php $this->load->view('yayasan/yayasan_sidebar.php'); ?>
+            <?php #$this->load->view('peserta/peserta_sidebar.php'); ?>
 
-        <div id="content-wrapper" class="d-flex flex-column mt-5 pt-3">
-            <div id="content">
-                <!-- Header Section -->
-                <?php $this->load->view('yayasan/yayasan_header'); ?>
-                <?php #$this->load->view('peserta/peserta_header'); ?>
+            <div id="content-wrapper" class="d-flex flex-column mt-5 pt-3">
+                <div id="content">
+                    <!-- Header Section -->
+                    <?php $this->load->view('yayasan/yayasan_header'); ?>
+                    <?php #$this->load->view('peserta/peserta_header'); ?>
 
-                <!-- Body Section -->
-                <div class="container-fluid">
-                    <div id="ajax_content"></div>
+                    <!-- Body Section -->
+                    <div class="container-fluid">
+                        <div id="loading"></div>
+                        <div id="loading-image">
+                            <img class="loading-image" src="<?= base_url('assets/img/loading/loading-page.gif'); ?>" />
+                        </div>
+                        <div id="ajax_content"></div>
+                    </div>
+
+                    <!-- Footer Section -->
+                    <footer id="peserta-footer">
+                        <?php $this->load->view('footer'); ?>
+                    </footer>
                 </div>
-
-                <!-- Footer Section -->
-                <footer id="peserta-footer">
-                    <?php $this->load->view('footer'); ?>
-                </footer>
             </div>
         </div>
-    </div>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -60,8 +64,14 @@
                 else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
                 $.ajax({
                     url: url_ajax,
+                    beforeSend: function() {
+                        $("#loading").show();
+                        $("#loading-image").show();
+                    },
                 }).done(function(data) {                 // data what is sent back by the php page
                     $('#ajax_content').html(data);       // display data
+                    $("#loading-image").hide();
+                    $("#loading").hide();
                 });
             }
 

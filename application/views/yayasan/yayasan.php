@@ -68,7 +68,9 @@
                                     <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
                                 </div>
                                 <div class="form-group col-md-2 mb-2">
-                                    <button type="submit" class="btn btn-light border col-md-8">Login</button>
+                                    <button type="submit" class="btn btn-light border col-md-8">
+                                        Login
+                                    </button>
                                     <span class="d-none d-sm-inline font-italic text-secondary pl-3">or</span>
                                 </div>
                                 <span class="col-md-2 text-center d-inline d-sm-none font-italic  mb-2 text-secondary">or</span>
