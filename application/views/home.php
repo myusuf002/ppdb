@@ -17,18 +17,20 @@
 <body id="page-top">
     <div id="wrapper">
             <!-- Sidebar Section -->
-            <?php $this->load->view('yayasan/yayasan_sidebar.php'); ?>
+            <?php $this->load->view('admin/admin_sidebar.php'); ?>
+            <?php #$this->load->view('yayasan/yayasan_sidebar.php'); ?>
             <?php #$this->load->view('peserta/peserta_sidebar.php'); ?>
 
-            <div id="content-wrapper" class="d-flex flex-column mt-5 pt-3">
+            <div id="content-wrapper" class="d-flex flex-column mt-5 pt-3 px-0 mx-0">
                 <div id="content">
                     <!-- Header Section -->
-                    <?php $this->load->view('yayasan/yayasan_header'); ?>
+                    <?php $this->load->view('admin/admin_header'); ?>
+                    <?php #$this->load->view('yayasan/yayasan_header'); ?>
                     <?php #$this->load->view('peserta/peserta_header'); ?>
 
                     <!-- Body Section -->
-                    <div class="container-fluid">
-                        <div id="loading"></div>
+                    <div class="container-fluid px-3">
+                        <div id="loading" class="my-3"></div>
                         <div id="loading-image">
                             <img class="loading-image" src="<?= base_url('assets/img/loading/loading-page.gif'); ?>" />
                         </div>
@@ -36,7 +38,7 @@
                     </div>
 
                     <!-- Footer Section -->
-                    <footer id="peserta-footer">
+                    <footer id="peserta-footer" class="p-0 m-0">
                         <?php $this->load->view('footer'); ?>
                     </footer>
                 </div>
@@ -59,7 +61,8 @@
                 var url_string = window.location.href;
                 var url = new URL(url_string);
                 var controller_name = url.searchParams.get("page");
-                if (controller_name == null) url_ajax = "<?php echo site_url('c_yayasan'); ?>";
+                if (controller_name == null) url_ajax = "<?php echo site_url('c_admin'); ?>";
+                // if (controller_name == null) url_ajax = "<?php //echo site_url('c_yayasan'); ?>";
                 //if (controller_name == null) url_ajax = "<?php //echo site_url('c_peserta'); ?>//";
                 else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
                 $.ajax({

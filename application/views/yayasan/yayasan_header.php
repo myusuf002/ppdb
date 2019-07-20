@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <!-- Page CSS -->
-    <link href="<?= base_url('assets/css/header.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/yayasan_header.css'); ?>" rel="stylesheet">
 </head>
 <body>
     <!--  Header Yayasan -->

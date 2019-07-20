@@ -19,4 +19,13 @@ class c_home extends CI_Controller {
         $this->load->view('home', $data);
     }
 
+    public function admin()
+    {
+        $data['title'] = "i-PPDB";
+        $data['nama_peserta'] = "Admin Sekolah";
+        $data['foto_peserta'] = "user-picture-1.png";
+        $data['yayasan'] = $this->m_home->get_yayasan();
+        $this->load->view('home_admin', $data);
+    }
+
 }

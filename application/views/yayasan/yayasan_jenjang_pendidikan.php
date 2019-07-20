@@ -203,11 +203,6 @@
         </div>
     </div>
 
-    <!-- JQUERY STEP -->
-    <script src="<?php echo base_url('assets/js/jquery.steps.js') ?>"></script>
-    <!-- DATE-PICKER -->
-    <script src="<?php echo base_url('vendor/date-picker/js/datepicker.js') ?>"></script>
-    <script src="<?php echo base_url('vendor/date-picker/js/datepicker.en.js') ?>"></script>
     <!-- Page JS  -->
     <script src="<?php echo base_url('assets/js/yayasan_jenjang_pendidikan.js') ?>"></script>
 
