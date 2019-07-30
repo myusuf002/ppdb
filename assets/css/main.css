@@ -41,6 +41,10 @@ body{
   width: 10vh;
 }
 
+.loading-button {
+  width: 3vh;
+}
+
 .tombol {
   cursor: pointer;
 }

@@ -205,6 +205,5 @@
 
     <!-- Page JS  -->
     <script src="<?php echo base_url('assets/js/yayasan_jenjang_pendidikan.js') ?>"></script>
-
 </body>
 </html>

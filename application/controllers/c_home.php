@@ -19,13 +19,11 @@ class c_home extends CI_Controller {
         $this->load->view('home', $data);
     }
 
-    public function admin()
+    public function logout()
     {
-        $data['title'] = "i-PPDB";
-        $data['nama_peserta'] = "Admin Sekolah";
-        $data['foto_peserta'] = "user-picture-1.png";
-        $data['yayasan'] = $this->m_home->get_yayasan();
-        $this->load->view('home_admin', $data);
+        $data_session = array('peserta_logged_in', 'id_peserta');
+        $this->session->unset_userdata($data_session);
+        redirect('c_home');
     }
 
 }

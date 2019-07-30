@@ -17,16 +17,25 @@
 <body id="page-top">
     <div id="wrapper">
             <!-- Sidebar Section -->
-            <?php $this->load->view('admin/admin_sidebar.php'); ?>
-            <?php #$this->load->view('yayasan/yayasan_sidebar.php'); ?>
-            <?php #$this->load->view('peserta/peserta_sidebar.php'); ?>
+            <?php
+//                $this->session->sess_destroy();
+                if ($this->session->has_userdata('peserta_logged_in')){
+                    $this->load->view('peserta/peserta_sidebar.php');
+                } else{
+                    $this->load->view('yayasan/yayasan_sidebar.php');
+                }
+            ?>
 
             <div id="content-wrapper" class="d-flex flex-column mt-5 pt-3 px-0 mx-0">
                 <div id="content">
                     <!-- Header Section -->
-                    <?php $this->load->view('admin/admin_header'); ?>
-                    <?php #$this->load->view('yayasan/yayasan_header'); ?>
-                    <?php #$this->load->view('peserta/peserta_header'); ?>
+                    <?php
+                        if ($this->session->has_userdata('peserta_logged_in')){
+                            $this->load->view('peserta/peserta_header');
+                        } else{
+                            $this->load->view('yayasan/yayasan_header');
+                        }
+                    ?>
 
                     <!-- Body Section -->
                     <div class="container-fluid px-3">
@@ -61,10 +70,13 @@
                 var url_string = window.location.href;
                 var url = new URL(url_string);
                 var controller_name = url.searchParams.get("page");
-                if (controller_name == null) url_ajax = "<?php echo site_url('c_admin'); ?>";
-                // if (controller_name == null) url_ajax = "<?php //echo site_url('c_yayasan'); ?>";
-                //if (controller_name == null) url_ajax = "<?php //echo site_url('c_peserta'); ?>//";
-                else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
+                <?php if ($this->session->has_userdata('peserta_logged_in')): ?>
+                    if (controller_name == null) url_ajax = "<?php echo site_url('c_peserta'); ?>";
+                    else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
+                <?php else: ?>
+                    if (controller_name == null) url_ajax = "<?php echo site_url('c_yayasan'); ?>";
+                    else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
+                <?php endif; ?>
                 $.ajax({
                     url: url_ajax,
                     beforeSend: function() {
