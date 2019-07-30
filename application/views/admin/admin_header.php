@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <!-- Page CSS -->
-    <link href="<?php echo base_url('assets/css/admin_header.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/admin_header.css'); ?>" rel="stylesheet">
 </head>
 <body>
     <!--  Header Peserta -->
@@ -24,9 +24,10 @@
         <!-- End Navigation Button -->
 
         <!-- Image and text Brand -->
-        <a class="navbar-brand ml-2" href="<?php echo site_url(); ?>">
-            <img src="<?php echo base_url(); ?>assets/img/logo/logo-name-ppdb.png"  height="30" class="d-none d-sm-block">
-            <span class="d-block d-sm-none font-italic pt-1 text-light ">i-PPDB </span>
+        <a class="navbar-brand ml-2" href="<?= site_url('c_home_admin'); ?>">
+            <img src="<?= base_url('assets/img/logo/logo-name-ppdb.png'); ?>"  height="30"
+                 class="d-none d-sm-block">
+            <span class="d-block d-sm-none font-italic pt-1 text-light ">i-PPDB</span>
         </a>
 
         <!-- Topbar Navbar -->
@@ -88,9 +89,9 @@
             <li class="nav-item dropdown mr-2">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-light small"><?php echo $nama_peserta; ?></span>
+                    <span class="mr-2 d-none d-lg-inline text-light small"><?= $nama_peserta; ?></span>
                     <img class="img-profile rounded-circle"
-                         src="<?php echo base_url() ?>assets/img/user/<?php echo $foto_peserta; ?>">
+                         src="<?= base_url() ?>assets/img/user/<?= $foto_peserta; ?>">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -103,7 +104,7 @@
                         Settings
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <a class="dropdown-item" href="<?= site_url('c_home_admin/logout'); ?>">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </a>

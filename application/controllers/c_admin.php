@@ -5,20 +5,14 @@ class c_admin extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "i-PPDB";
-		$data['login_status'] = true;
+		$data['title'] = "";
 		$this->load->view('admin/admin', $data);
   	}
-    
+
   	public function login()
 	{
-		$data['title'] = "i-PPDB Login";
+		$data['title'] = "";
 		$this->load->view('admin/admin_login', $data);
-	}
-
-	public function logout()
-	{
-		redirect("/");
-	}
+  	}
     
 }

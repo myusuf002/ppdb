@@ -48,6 +48,9 @@ class c_yayasan extends CI_Controller {
                     'tipe' => 'success',
                     'msg' => 'Login berhasil.'
                 );
+                date_default_timezone_set('Asia/Jakarta');
+                $data = array('last_login_peserta' => date('Y-m-d h:i:s', time()));
+                $this->m_yayasan->update_last_login_peserta($data_peserta['id_peserta'], $data);
             }else{
                 $data_msg = array(
                     'tipe' => 'error',

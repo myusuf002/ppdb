@@ -20,14 +20,13 @@
     </div>
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url(); ?>">
     <div class="sidebar-brand-icon">
-        <img src="<?php echo base_url('uploads/foundation/logo-foundation.png'); ?>" width="30" height="30"
+        <img src="<?= base_url('uploads/foundation/logo-foundation.png'); ?>" width="30" height="30"
              class="d-inline-block align-top">
     </div>
     <div class="sidebar-brand-text mx-3">
         <span class="font-weight-bold">Telkom Schools</span>
-        
     </div>
     </a>
     <!-- Divider -->
@@ -137,7 +136,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Informasi Akun:</h6>
         <a class="collapse-item tombol" id="c_peserta_pengaturan">Pengaturan</a>
-        <a class="collapse-item" href="<?php echo site_url("c_peserta/logout"); ?>">Keluar</a>
+        <a class="collapse-item" href="<?php echo site_url("c_home_admin/logout"); ?>">Keluar</a>
         </div>
     </div>
     </li>

@@ -24,4 +24,9 @@ class m_yayasan extends CI_Model {
         return $data->row_array();
     }
 
+    public function update_last_login_peserta($id_peserta, $data){
+        $this->db->where('id_peserta', $id_peserta);
+        $this->db->update('peserta', $data);
+    }
+
 }

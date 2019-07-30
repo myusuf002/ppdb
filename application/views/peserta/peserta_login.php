@@ -23,8 +23,8 @@
         <div class="container">
             <div class="row justify-content-center text-center my-3">
                 <div class="col-md-4 pt-3">
-                    <a class="navbar-brand ml-2" href="<?php echo base_url(); ?>">
-                        <img src="<?php echo base_url('uploads/foundation/logo-name-foundation.png'); ?>"  height="42">
+                    <a class="navbar-brand ml-2" href="<?= base_url(); ?>">
+                        <img src="<?= base_url('uploads/foundation/logo-name-foundation.png'); ?>"  height="42">
                     </a>
                 </div>
             </div>
@@ -50,11 +50,8 @@
 
                     <!-- Login Options Link -->
                     <div class="row mt-3 small font-italic">
-                        <div class="col text-left">
-<!--                            <a href="#" class="text-decoration-none text-dark">Forgot password?</a>-->
-                        </div>
-                        <div class="col text-right">
-                            <a class="text-decoration-none text-dark" href="<?php echo site_url(); ?>?page=c_yayasan/registrasi">Create account</a>
+                        <div class="col text-center">
+                            <a class="text-decoration-none text-dark" href="<?= site_url(); ?>?page=c_yayasan/registrasi">Create account</a>
                         </div>
                     </div>
                     <!-- End Login Options Link -->
