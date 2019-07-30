@@ -77,19 +77,11 @@
         <h6 class="collapse-header">Informasi Akun:</h6>
         <a class="collapse-item tombol" id="c_peserta_aktivasi_akun">Aktivasi Akun</a>
         <a class="collapse-item tombol" id="c_peserta_pengaturan">Pengaturan</a>
-        <a class="collapse-item" href="<?php echo site_url("c_peserta/logout"); ?>">Keluar</a>
+        <a class="collapse-item" href="<?= site_url("c_home/logout"); ?>">Keluar</a>
         </div>
     </div>
     </li>
-   
-    <!-- Nav Item - Dasar Collapse Menu 
-    <li class="nav-item">
-    <a class="nav-link" href="#">
-        <i class="fas fa-fw fa-address-book"></i>
-        <span>Kontak</span>
-    </a>
-    </li>
-    -->
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

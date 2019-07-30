@@ -8,6 +8,17 @@
     <title></title>
 </head>
 <body>
+    <div id="body-alert-danger" class="row mx-1 my-3">
+        <div class="col-md-12 py-2">
+            <div class="alert small alert-danger alert-dismissible fade show" role="alert">
+                <span id="text-alert-danger"></span>
+<!--                <button type="button" class="close py-0 px-2 my-2" data-dismiss="alert" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+            </div>
+        </div>
+    </div>
+
     <!-- Body Section -->
     <div class="row">
         <div class="col-md-12">
@@ -58,17 +69,19 @@
                     <div class="row">
                         <div class="col-md-10 pt-2">
                             <!-- Login Form -->
-                            <form class="form-row needs-validation" action="" method="POST" novalidate>
+                            <form id="form-login" class="form-row needs-validation">
                                 <div class="form-group mb-2 col-md-5">
                                     <label for="staticUsername" class="sr-only">Username</label>
-                                    <input type="text" class="form-control" id="staticUsername" placeholder="Username" required>
+                                    <input name="username_peserta" type="text" class="form-control"
+                                           id="staticUsername" placeholder="Username" required>
                                 </div>
                                 <div class="form-group col-md-5 mb-2">
                                     <label for="inputPassword" class="sr-only">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                                    <input name="password_peserta" type="password" class="form-control"
+                                           id="inputPassword" placeholder="Password" required>
                                 </div>
                                 <div class="form-group col-md-2 mb-2">
-                                    <button type="submit" class="btn btn-light border col-md-8">
+                                    <button id="btnForm" type="submit" class="btn btn-light border col-md-8">
                                         Login
                                     </button>
                                     <span class="d-none d-sm-inline font-italic text-secondary pl-3">or</span>
@@ -132,6 +145,48 @@
 
     <!-- Page JS  -->
     <script src="<?= base_url('assets/js/yayasan.js'); ?>"></script>
+    <script>
+        $("#body-alert-danger").hide();
+        /* Get from elements values */
+        $("#form-login").submit(function(event){
+            if ($('#form-login')[0].checkValidity()){
+                // Prevent default posting of form - put here to work in case of errors
+                event.preventDefault();
+                var values = $(this).serialize();
 
+                $.ajax({
+                    url: "<?= site_url('c_yayasan/login') ?>",
+                    type: "post",
+                    data: values ,
+                    beforeSend: function() {
+                        var image = '<img class="loading-button" src="' +
+                            '<?= base_url("assets/img/loading/loading-button2.gif"); ?>' +
+                            '" />';
+                        $("#btnForm").html(image);
+                    },
+                    success: function (response) {
+                        // You will get response from your PHP page (what you echo or print)
+                        var data_json = jQuery.parseJSON(response);
+                        // alert(data_json.msg);
+                        $("#btnForm").html("Login");
+                        // $("#text-alert-success").html(data_json['password_peserta']);
+                        // $("#body-alert-success").show().delay(10000).fadeOut("slow");
+                        if (data_json.tipe == 'error'){
+                            $("#text-alert-danger").html(data_json.msg);
+                            $("#body-alert-danger").show();
+                        }else{
+                            window.location.href = "<?= site_url(); ?>";
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // console.log(textStatus, errorThrown);
+                        $("#text-alert-danger").html("Server Error");
+                        $("#body-alert-danger").show();
+                    }
+                });
+            }
+
+        });
+    </script>
 </body>
 </html>

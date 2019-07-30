@@ -60,7 +60,6 @@
                 var url = new URL(url_string);
                 var controller_name = url.searchParams.get("page");
                 if (controller_name == null) url_ajax = "<?php echo site_url('c_admin'); ?>";
-                //if (controller_name == null) url_ajax = "<?php //echo site_url('c_peserta'); ?>//";
                 else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
                 $.ajax({
                     url: url_ajax,

@@ -18,4 +18,10 @@ class m_yayasan extends CI_Model {
         return $this->db->get('jenjang_pendidikan')->result_array();
     }
 
+    public function get_specific_peserta($condition){
+        $this->db->where($condition);
+        $data = $this->db->get('peserta');
+        return $data->row_array();
+    }
+
 }

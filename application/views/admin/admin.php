@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/datatables.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/datatables.css'); ?>">
 </head>
 <body>
     <!-- Body Section -->

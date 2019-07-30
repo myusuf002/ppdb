@@ -29,4 +29,10 @@ class m_yayasan_jenjang_pendidikan extends CI_Model
         $data = $this->db->get('peserta');
         return $data->row_array();
     }
+
+    public function cek_username_peserta($username_peserta){
+        $this->db->where('username_peserta', $username_peserta);
+        $data = $this->db->get('peserta');
+        return $data->row_array();
+    }
 }
