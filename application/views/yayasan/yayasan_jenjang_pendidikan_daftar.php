@@ -30,7 +30,7 @@
                 <div class="form-row my-2">
                     <div class="col-md-6 px-3 text-left ">
                         <span class="small text-secondary">Tanggal Lahir</span>
-                        <input type="text" class="form-control form-input pb-2 mb-3 datepicker-here" data-language='en' data-date-format="dd/mm/yyyy" id="dp1" required>
+                        <input type="text" class="form-control form-input pb-2 mb-3 datepicker-here" data-language='en' data-date-format="dd/mm/yyyy" id="datepicker" required>
                     </div>
                     <div class="col-md-6 px-3 text-left">
                         <p class="small text-secondary">Jenis Kelamin</p>

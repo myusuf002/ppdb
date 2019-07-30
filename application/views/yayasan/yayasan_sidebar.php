@@ -117,7 +117,7 @@
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
     </ul>
-    <!-- End Sidebar Peserta -->S
+    <!-- End Sidebar Peserta -->
 
 </body>
 </html>

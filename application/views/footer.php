@@ -13,7 +13,7 @@
         $medsos_json = json_decode($yayasan['media_sosial_yayasan'], true);
     ?>
     <!-- Footer Peserta -->
-    <div id="contacts" class="container-fluid ">
+    <div id="contacts" class="container-fluid">
         <div class="row bg-light">
             <div class="col-md-4 p-3 text-secondary">
                 <span>
