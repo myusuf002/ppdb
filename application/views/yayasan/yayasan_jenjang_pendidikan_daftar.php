@@ -42,7 +42,7 @@
                     <div class="col-md-6 px-3 text-left ">
                         <span class="small text-secondary">Tanggal Lahir</span>
                         <input name="tgl_lahir_data_diri" type="date"
-                               class="form-control form-input pb-2 mb-3 datepicker-here" data-language='en' data-date-format="dd/mm/yyyy" id="datepicker" required>
+                               class="form-control form-input pb-2 mb-3" data-language='en' data-date-format="dd/mm/yyyy" required>
                     </div>
                     <div class="col-md-6 px-3 text-left">
                         <p class="small text-secondary">Jenis Kelamin</p>
