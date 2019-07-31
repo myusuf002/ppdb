@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_home_admin extends CI_Model {
+class m_admin extends CI_Model {
 
     public function get_specific_admin($condition){
         $this->db->where($condition);

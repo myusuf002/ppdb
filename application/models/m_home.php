@@ -12,4 +12,10 @@ class m_home extends CI_Model {
         return $this->db->get('jenjang_pendidikan')->result_array();
     }
 
+    public function get_all_tables(){
+        return $this->db
+            ->query("SELECT table_name FROM information_schema.tables where table_schema='SI2nmLzIv6'")
+            ->result_array();
+    }
+
 }

@@ -24,7 +24,7 @@
         <!-- End Navigation Button -->
 
         <!-- Image and text Brand -->
-        <a class="navbar-brand ml-2" href="<?= site_url('c_home_admin'); ?>">
+        <a class="navbar-brand ml-2" href="<?= site_url('c_home'); ?>">
             <img src="<?= base_url('assets/img/logo/logo-name-ppdb.png'); ?>"  height="30"
                  class="d-none d-sm-block">
             <span class="d-block d-sm-none font-italic pt-1 text-light ">i-PPDB</span>
@@ -80,34 +80,6 @@
                     </div>
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown mr-2">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-light small"><?= $nama_peserta; ?></span>
-                    <img class="img-profile rounded-circle"
-                         src="<?= base_url() ?>assets/img/user/<?= $foto_peserta; ?>">
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?= site_url('c_home_admin/logout'); ?>">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
-                    </a>
                 </div>
             </li>
 

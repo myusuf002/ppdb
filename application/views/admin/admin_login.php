@@ -60,7 +60,7 @@
             var values = $(this).serialize();
 
             $.ajax({
-                url: "<?= site_url('c_home_admin/login') ?>",
+                url: "<?= site_url('c_admin/login') ?>",
                 type: "post",
                 data: values ,
                 beforeSend: function() {
@@ -76,7 +76,7 @@
                         $("#text-alert-danger").html(data_json.msg);
                         $("#body-alert-danger").show();
                     }else{
-                        window.location.href = "<?= site_url('c_home_admin'); ?>";
+                        window.location.href = "<?= site_url('c_home'); ?>";
                     }
                 },
                 error: function() {

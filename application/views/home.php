@@ -18,8 +18,10 @@
     <div id="wrapper">
             <!-- Sidebar Section -->
             <?php
-//                $this->session->sess_destroy();
-                if ($this->session->has_userdata('peserta_logged_in')){
+                if ($this->session->has_userdata('admin_logged_in')){
+                    $this->load->view('admin/admin_sidebar.php');
+                }
+                else if ($this->session->has_userdata('peserta_logged_in')){
                     $this->load->view('peserta/peserta_sidebar.php');
                 } else{
                     $this->load->view('yayasan/yayasan_sidebar.php');
@@ -30,7 +32,10 @@
                 <div id="content">
                     <!-- Header Section -->
                     <?php
-                        if ($this->session->has_userdata('peserta_logged_in')){
+                        if ($this->session->has_userdata('admin_logged_in')){
+                            $this->load->view('admin/admin_header');
+                        }
+                        else if ($this->session->has_userdata('peserta_logged_in')){
                             $this->load->view('peserta/peserta_header');
                         } else{
                             $this->load->view('yayasan/yayasan_header');
@@ -70,7 +75,10 @@
                 var url_string = window.location.href;
                 var url = new URL(url_string);
                 var controller_name = url.searchParams.get("page");
-                <?php if ($this->session->has_userdata('peserta_logged_in')): ?>
+                <?php if ($this->session->has_userdata('admin_logged_in')): ?>
+                    if (controller_name == null) url_ajax = "<?php echo site_url('c_admin'); ?>";
+                    else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
+                <?php elseif ($this->session->has_userdata('peserta_logged_in')): ?>
                     if (controller_name == null) url_ajax = "<?php echo site_url('c_peserta'); ?>";
                     else url_ajax = "<?php echo site_url(); ?>/" + controller_name;
                 <?php else: ?>
