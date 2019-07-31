@@ -28,5 +28,5 @@ i-PPDB merupakan aplikasi pengelolaan Penerimaan Peserta Didik Baru (PPDB) untuk
 ![Preview Admin](./readme/preview-admin.png) 
 
 ## Skema Relasi
-![Skema Relasi](./readme/skema-relasi.jpeg) 
+![Skema Relasi](./readme/skema-relasi.png) 
 
